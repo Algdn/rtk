@@ -25,6 +25,10 @@
 #define ecefY 8//ECEF Y coordinate
 #define ecefZ 12//ECEF Z coordinate
 
+//RXM-SFRBX
+#define svid 1 //Satellite identifier
+#define numWords 4//
+
 
 
 //int* harw(int filedes,int *len);
@@ -179,6 +183,19 @@ for(int d=0; d<=numSvs;d++)
              printf("\n ECEF X %i",pmes[ecefX]+(pmes[ecefX+1]<<8)+(pmes[ecefX+2]<<16)+(pmes[ecefX+3]<<24));
              printf("\n ECEF Y %i",pmes[ecefY]+(pmes[ecefY+1]<<8)+(pmes[ecefY+2]<<16)+(pmes[ecefY+3]<<24));
              printf("\n ECEF Z %i",pmes[ecefZ]+(pmes[ecefZ+1]<<8)+(pmes[ecefZ+2]<<16)+(pmes[ecefZ+3]<<24));
+
+
+             break;
+         }
+
+         case 2019:
+         {
+             printf("\nRXM-SFRBX\n");
+             printf("satellite number %i",pmes[svid]);
+
+             for(int k=0;k<pmes[numWords];k++)
+             printf("\n his data %X %X %X %X",pmes[8 + 4*(k+3)],pmes[8 + 4*(k+2)],pmes[8 + 4*(k+1)],pmes[8 + 4*(k+0)]);
+
 
 
              break;
