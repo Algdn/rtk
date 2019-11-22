@@ -31,7 +31,6 @@
 
 
 
-//int* harw(int filedes,int *len);
 int main()
 {
    // QApplication app(argc, argv);//GUI
@@ -52,7 +51,7 @@ int MESS_POINTER=0;
 
     for(;;)
     {
-        //read(fd,&buffer,1);
+        
         read(fd,&MESS_POINTER,1);
 
 
@@ -72,9 +71,10 @@ int MESS_POINTER=0;
            int MESLEN=0, MESLEN2=0;
            printf(" CLASS(");
            int CLASS=0,ID=0,CLID=0;//class & id for parsing
-             read(fd,&MESS_POINTER,1);//read byte 3
-             CLASS=MESS_POINTER;
-            printf("0x%X ",MESS_POINTER);//output 3 byte
+            
+		 read(fd,&MESS_POINTER,1);//read byte 3
+		 CLASS=MESS_POINTER;
+            	 printf("0x%X ",MESS_POINTER);//output 3 byte
              read(fd,&MESS_POINTER,1);//read byte 4
              ID=MESS_POINTER;
             printf("0x%X",MESS_POINTER);//output 4 byte
