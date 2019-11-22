@@ -236,7 +236,7 @@ for(int d=0; d<=numSvs;d++)
             if (fcl=0)
             printf("\n file no closed");
 
-    return 1;//app.exec();
+    return 1;
 }
 
 
